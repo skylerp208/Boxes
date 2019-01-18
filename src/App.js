@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import NavBar from "./NavBar";
+import BoxContainer from "./Containers/BoxContainer"
 
 class App extends Component {
+
+  dragHandler = (e) => {
+    console.log("draaged");
+  }
+
+  onDragOver = (e) => {
+    console.log('dragging overrrrrr');
+  }
+
+  onDrop = (e) => {
+    console.log('drooooopppeed');
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <NavBar />
+        <BoxContainer
+          dragHandler = {this.dragHandler}
+          onDragOver = {this.onDragOver}
+          onDrop = {this.onDrop}
+        />
       </div>
     );
   }
